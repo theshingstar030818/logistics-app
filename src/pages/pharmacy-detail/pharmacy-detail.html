@@ -1,0 +1,38 @@
+<!--
+  Generated template for the PharmacyDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{pharmacy?.get('name')}}</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="isEdit=!isEdit">
+        <ion-icon name="{{ isEdit ? 'ios-close-outline' : 'ios-create-outline' }}"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label fixed>Name</ion-label>
+      <ion-input name="name" type="text" value="{{ pharmacy?.get('name') }}" disabled="{{ !isEdit ? true : false}}" (ionChange)="set($event, pharmacy)"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Address</ion-label>
+      <ion-input name="fullAddress" type="text" value="{{pharmacy?.get('address')?.get('fullAddress')}}" disabled="{{ !isEdit ? true : false}}" (ionChange)="set($event, pharmacy.get('address'))"></ion-input>
+    </ion-item>
+  
+  </ion-list>
+  
+</ion-content>
